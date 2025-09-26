@@ -13,6 +13,8 @@ public class PlayerBird : Bird
         m_glide = m_flap || Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space);
 
         {   // TODO Move the player bird forward at a rate of m_forwardSpeed (units per second)
+            
+            GetComponent
         }
 
         base.Update();

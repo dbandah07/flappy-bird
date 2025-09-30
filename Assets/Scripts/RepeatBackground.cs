@@ -36,7 +36,7 @@ public class RepeatBackground : MonoBehaviour
                 GameObject copy = Instantiate(r_mostChild.gameObject);
 
                 // position directly to the right of the curr right-most
-                copy.transform.position = r_mostChild.transform.position + new Vector3(m_bounds.size.x, 0, 0)
+                copy.transform.position = r_mostChild.transform.position + new Vector3(m_bounds.size.x, 0, 0);
 
                 // make a sibling
                 copy.transform.SetParent(transform);

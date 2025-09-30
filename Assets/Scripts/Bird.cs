@@ -73,4 +73,6 @@ public class Bird : MonoBehaviour
     }
 
     // TODO Create Collision Function
+
+    
 }

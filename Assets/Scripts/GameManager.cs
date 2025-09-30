@@ -35,6 +35,21 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         {   // TODO make pipes
+            float world_pos = Camera.main.transform.position.x;
+
+            while (world_pos - m_lastCamPos.x > m_horizSpacing) 
+            {
+                // determine vertical pos for pipe
+                m_lastCamPos.x += m_horizSpacing;
+
+                // spawn the pipe at x pos, random y 
+                float yPos = Random.Range(-m_vertSpacing, m_maxY);
+                Vector3 s_pos = new Vector3(m_lastPos.x, yPos, 0f);
+                Instantiate(m_pipe, s_pos, Quaternion.identity);
+
+                // advance last pipe x pos to nxt spwan
+                m_lastPos.x += m_horizSpacing;
+            }
         }
 
         if (null == m_player)

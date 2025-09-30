@@ -74,5 +74,12 @@ public class Bird : MonoBehaviour
 
     // TODO Create Collision Function
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision != null)
+        {
+           Die();
+        }
+    }
+
 }

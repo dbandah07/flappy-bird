@@ -15,6 +15,7 @@ public class Bird : MonoBehaviour
     // TODO Add m_flapSound
 
     Animator m_anim;
+    AudioSource m_flapSound;
     protected bool m_flap = false;
     protected bool m_glide = false;
 
@@ -34,6 +35,10 @@ public class Bird : MonoBehaviour
         {
             m_ySpeed += m_flapBoost;
             {   //TODO play the flap sound
+                if (m_flapSound != null)
+                {
+                    m_flapSound.Play();
+                }
             }
         }
         if (m_glide)

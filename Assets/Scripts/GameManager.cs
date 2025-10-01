@@ -39,7 +39,19 @@ public class GameManager : MonoBehaviour
         // grab the player for future reference
         m_player = FindFirstObjectByType<PlayerBird>();
 
+
+        // reconnect UI (crashing)
+        if (m_timerText == null)
+        {
+            m_timerText = GameObject.Find("TimerText").GetComponent<TextMeshProUGUI>();
+        }
+        if (m_scoreText == null)
+        {
+            m_scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
+        }
+
         SetPause(false);
+        ResetUI();
     }
 
     // Update is called once per frame
@@ -119,7 +131,13 @@ public class GameManager : MonoBehaviour
     public void AddScore(int pts)
     {
         m_score += pts;
-        m_scoreText.text = "Score: " + m_score;
+        
+        if (m_scoreText != null)
+        {
+            m_scoreText.text = "Score: " + m_score;
+            Debug.Log("Score added! Current score: " + m_score);
+
+        }
     }
 
     public void ResetUI()

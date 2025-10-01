@@ -15,6 +15,10 @@ public class Bird : MonoBehaviour
     // TODO Add m_flapSound
     public AudioSource m_flapSound;
 
+    // making it harder:
+    public float m_gravIncRate = 0.75f; 
+    public float m_flapIncRate = 0.05f;
+
     Animator m_anim;
     protected bool m_flap = false;
     protected bool m_glide = false;
@@ -30,6 +34,9 @@ public class Bird : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+        m_gravity += m_gravIncRate * Time.deltaTime;
+        m_flapBoost += m_flapIncRate * Time.deltaTime;
+
         Vector3 pos = transform.position;
         if (m_flap)
         {

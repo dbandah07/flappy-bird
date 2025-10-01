@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public float m_vertSpacing = 4.0f;
     public float m_maxY = 4.0f;
     public GameObject m_pauseMenu;
+    public float m_spacing = 0.02f;
+    public float m_minSpace = 2.0f;
 
     Vector3 m_lastPos;
     Vector3 m_lastCamPos;
@@ -38,6 +40,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        m_horizSpacing = Mathf.Max(m_minSpace, m_horizSpacing - m_spacing * Time.deltaTime);
+
         {   // TODO make pipes
             float world_pos = Camera.main.transform.position.x;
 

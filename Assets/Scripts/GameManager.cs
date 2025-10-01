@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +18,15 @@ public class GameManager : MonoBehaviour
     Vector3 m_lastCamPos;
     PlayerBird m_player;
     bool m_isPaused = false;
+
+    // score and time keeper
+
+    public TextMeshProUGUI m_timerText;
+    public TextMeshProUGUI m_scoreText;
+
+    float m_time = 0f;
+    int m_score = 0;
+    bool m_timer = true;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +73,19 @@ public class GameManager : MonoBehaviour
         {   // this doubles as the option key in the android navigation bar
             SetPause(!m_isPaused);
         }
+
+        // timer
+
+        if (m_timer)
+        {
+            m_time += Time.deltaTime;
+
+            int min = (int)(m_time / 60);
+            int sec = (int)(m_time % 60);
+            int tenths = (int)((m_time * 10) % 10);
+
+            m_timerText.text = $"{min}:{sec:00}.{tenths}";
+        }
     }
 
     IEnumerator GameOver()
@@ -69,6 +93,7 @@ public class GameManager : MonoBehaviour
         // wait 3 seconds
         yield return new WaitForSecondsRealtime(3.0f);
         // and reload the scene
+        m_timer = false;
         SceneManager.LoadScene(0);
     }
 
@@ -89,5 +114,19 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void AddScore(int pts)
+    {
+        m_score += pts;
+        m_scoreText.text = "Score: " + m_score;
+    }
+
+    public void ResetUI()
+    {
+        m_time = 0f;
+        m_score = 0;
+        m_timerText.text = "0:00.0";
+        m_scoreText.text = "Score: 0";
     }
 }

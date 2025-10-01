@@ -81,9 +81,13 @@ public class Bird : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null)
+        if (collision.CompareTag("Obstacle"))
         {
            Die();
+        }
+        else if (collision.CompareTag("ScoreTag"))
+        {
+            FindFirstObjectByType<GameManager>().AddScore(1);
         }
     }
 

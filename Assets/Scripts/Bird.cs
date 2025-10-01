@@ -13,7 +13,7 @@ public class Bird : MonoBehaviour
     public float m_yMax = 5.0f;
     public GameObject m_deathEffect;
     // TODO Add m_flapSound
-    AudioSource m_flapSound;
+    public AudioSource m_flapSound;
 
     Animator m_anim;
     protected bool m_flap = false;

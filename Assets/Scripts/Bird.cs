@@ -79,16 +79,45 @@ public class Bird : MonoBehaviour
 
     // TODO Create Collision Function
 
+    //  private void OnTriggerEnter2D(Collider2D collision)
+    //  {
+    //      if (collision.CompareTag("Obstacle"))
+    //      {
+    //         Die();
+    //      }
+    //      else if (collision.CompareTag("ScoreZone"))
+    //      {
+    //          FindFirstObjectByType<GameManager>().AddScore(1);
+    //      }
+    //  }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Debug everything about the collision
+        if (collision == null)
+        {
+            Debug.Log("[Bird] OnTriggerEnter2D: collision is NULL");
+            return;
+        }
+
+        Debug.Log($"[Bird] OnTriggerEnter2D: hit object '{collision.gameObject.name}' with tag '{collision.gameObject.tag}'.");
+
+        // Check GameManager exists
+        var gm = FindFirstObjectByType<GameManager>();
+        if (gm == null)
+        {
+            Debug.LogError("[Bird] GameManager NOT found in scene!");
+        }
+
         if (collision.CompareTag("Obstacle"))
         {
-           Die();
+            Debug.Log("[Bird] Hit Obstacle -> Die()");
+            Die();
         }
         else if (collision.CompareTag("ScoreZone"))
         {
-            FindFirstObjectByType<GameManager>().AddScore(1);
+            Debug.Log("[Bird] Passed ScoreZone -> calling AddScore");
+            if (gm != null) gm.AddScore(1);
         }
     }
-
 }

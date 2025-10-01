@@ -41,14 +41,14 @@ public class GameManager : MonoBehaviour
 
 
         // reconnect UI (crashing)
-        if (m_timerText == null)
-        {
-            m_timerText = GameObject.Find("TimerText").GetComponent<TextMeshProUGUI>();
-        }
-        if (m_scoreText == null)
-        {
-            m_scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
-        }
+    //  if (m_timerText == null)
+    //  {
+    //      m_timerText = GameObject.Find("TimerText").GetComponent<TextMeshProUGUI>();
+    //  }
+    //  if (m_scoreText == null)
+    //  {
+    //      m_scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
+    //  }
 
         SetPause(false);
         ResetUI();

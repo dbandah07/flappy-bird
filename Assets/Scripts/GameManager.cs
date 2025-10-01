@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     public float m_vertSpacing = 4.0f;
     public float m_maxY = 4.0f;
     public GameObject m_pauseMenu;
-    public float m_spacing = 0.02f;
+
+    public float m_spacing = 0.05f;
     public float m_minSpace = 2.0f;
 
     Vector3 m_lastPos;

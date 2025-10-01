@@ -16,8 +16,8 @@ public class Bird : MonoBehaviour
     public AudioSource m_flapSound;
 
     // making it harder:
-    public float m_gravIncRate = 0.75f; 
-    public float m_flapIncRate = 0.05f;
+    public float m_gravIncRate = 1.00f; 
+    public float m_flapIncRate = 0.75f;
 
     Animator m_anim;
     protected bool m_flap = false;

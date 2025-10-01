@@ -85,9 +85,9 @@ public class Bird : MonoBehaviour
         {
            Die();
         }
-        else if (collision.CompareTag("ScoreTag"))
+        else if (collision.CompareTag("ScoreZone"))
         {
-            Debug.Log("Passed ScoreZone!");
+        //  Debug.Log("Passed ScoreZone!");
             FindFirstObjectByType<GameManager>().AddScore(1);
         }
     }

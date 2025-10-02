@@ -112,6 +112,8 @@ MonoBehaviour:
   m_yMax: 5
   m_deathEffect: {fileID: 8560469453107033973, guid: 224df28e87445d649a3de775550847e4, type: 3}
   m_flapSound: {fileID: 7321246218141787631}
+  m_gravIncRate: 1
+  m_flapIncRate: 0.75
   m_forwardSpeed: 3
 --- !u!95 &4377945532595333451
 Animator:
@@ -165,7 +167,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

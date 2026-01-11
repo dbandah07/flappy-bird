@@ -10,8 +10,8 @@ Mechanics-focused Unity lab project recreating core *Flappy Bird* gameplay. Buil
   - Flap strength scales to match increased speed
 - Score triggers and restart loop
 - Controls:
-  - Desktop: Keyboard input (as implemented in the lab)
-  - Mobile: Tap input (as implemented in the lab)
+  - Desktop: Keyboard input 
+  - Mobile: Tap input 
 
 ## Notes
 Completed during Fall 2025 as part of the class **Mobile Game Development**
